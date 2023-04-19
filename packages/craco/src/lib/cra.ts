@@ -298,3 +298,11 @@ export function test(cracoConfig: CracoConfig) {
 
   require(filepath);
 }
+
+export function buildserver(cracoConfig: CracoConfig) {
+  const filepath = resolveScriptsFilePath(cracoConfig, 'buildserver.js');
+
+  log('Building Server CRA at: ', filepath);
+
+  require(filepath);
+}
