@@ -1,7 +1,7 @@
 {
   "name": "@elgoritmo-lda/types",
   "description": "Official type declarations for @craco/craco",
-  "version": "7.1.1",
+  "version": "7.1.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
