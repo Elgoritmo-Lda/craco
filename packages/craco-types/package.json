@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dilanx/craco.git",
+    "url": "https://github.com/Elgoritmo-Lda/craco.git",
     "directory": "packages/craco-types"
   },
   "author": "Dilan Nair (https://www.dilanxd.com)",
@@ -34,6 +34,6 @@
     "typescript": "^4.8.4"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   }
 }

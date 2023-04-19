@@ -12,11 +12,11 @@
     "prepack": "npm run build"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dilanx/craco.git",
+    "url": "https://github.com/Elgoritmo-Lda/craco.git",
     "directory": "packages/craco"
   },
   "keywords": [
