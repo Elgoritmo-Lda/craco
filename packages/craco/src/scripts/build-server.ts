@@ -1,6 +1,6 @@
 import type { BaseContext } from '@craco/types';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+process.env.NODE_ENV = 'production';
 
 import { findArgsFromCli } from '../lib/args';
 
@@ -8,7 +8,7 @@ import { findArgsFromCli } from '../lib/args';
 findArgsFromCli();
 
 import { loadCracoConfigAsync } from '../lib/config';
-import { buildserver, getCraPaths } from '../lib/cra';
+import { buildserver, getCraPaths, loadWebpackProdConfig, overrideWebpackProdConfig} from '../lib/cra';
 
 import { overridePaths } from '../lib/features/paths/override';
 import {
@@ -32,7 +32,8 @@ loadCracoConfigAsync(context).then((cracoConfig) => {
   context.paths = overridePaths(cracoConfig, context);
 
   process.env.NODE_ENV === 'production'
-    ? overrideWebpackProd(cracoConfig, context)
+    ? overrideWebpackProd(cracoConfig, context, "node")
     : overrideWebpackDev(cracoConfig, context);
+  
   buildserver(cracoConfig);
 });

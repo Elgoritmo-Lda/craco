@@ -170,7 +170,7 @@ function getWebpackProdConfigPath(cracoConfig: CracoConfig) {
   }
 }
 
-export function loadWebpackProdConfig(cracoConfig: CracoConfig): WebpackConfig {
+export function loadWebpackProdConfig(cracoConfig: CracoConfig, target = 'web'): WebpackConfig {
   const result = getWebpackProdConfigPath(cracoConfig);
 
   log('Found Webpack prod config at: ', result.filepath);
@@ -178,8 +178,11 @@ export function loadWebpackProdConfig(cracoConfig: CracoConfig): WebpackConfig {
   if (result.isLegacy) {
     return require(result.filepath);
   }
-
-  return require(result.filepath)('production');
+  if (target != 'node') {
+    return require(result.filepath)('production');
+  } else {
+    return require(result.filepath)('production','node');
+  }
 }
 
 export function overrideWebpackProdConfig(
@@ -300,7 +303,7 @@ export function test(cracoConfig: CracoConfig) {
 }
 
 export function buildserver(cracoConfig: CracoConfig) {
-  const filepath = resolveScriptsFilePath(cracoConfig, 'buildserver.js');
+  const filepath = resolveScriptsFilePath(cracoConfig, 'build-server.js');
 
   log('Building Server CRA at: ', filepath);
 

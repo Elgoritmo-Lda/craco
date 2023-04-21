@@ -24,14 +24,14 @@ export function overrideWebpackDev(
 
 export function overrideWebpackProd(
   cracoConfig: CracoConfig,
-  context: WebpackContext
+  context: WebpackContext,
+  target: string = 'web'
 ) {
-  const craWebpackConfig = loadWebpackProdConfig(cracoConfig);
+  const craWebpackConfig = loadWebpackProdConfig(cracoConfig, target);
   const resultingWebpackConfig = mergeWebpackConfig(
     cracoConfig,
     craWebpackConfig,
     context
   );
-
   overrideWebpackProdConfig(cracoConfig, resultingWebpackConfig);
 }

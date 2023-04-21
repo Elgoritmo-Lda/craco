@@ -8,7 +8,7 @@ import { findArgsFromCli } from '../lib/args';
 findArgsFromCli();
 
 import { loadCracoConfigAsync } from '../lib/config';
-import { build, getCraPaths } from '../lib/cra';
+import { build, getCraPaths ,loadWebpackDevConfig,loadWebpackProdConfig , overrideWebpackDevConfig, overrideWebpackProdConfig} from '../lib/cra';
 import { overridePaths } from '../lib/features/paths/override';
 import {
   overrideWebpackProd,
